@@ -1,10 +1,73 @@
 from django.urls import path
 
-from .views import anime_store, company_dashboard, home, ip_accounting
+from .views import (
+    home,
+    company_dashboard,
+    ip_accounting,
+    anime_store,
+
+    create_ip_request,
+
+    add_to_cart,
+    remove_from_cart,
+    update_cart_quantity,
+    checkout,
+)
 
 urlpatterns = [
-    path("", home, name="home"),
-    path("company-dashboard/", company_dashboard, name="company_dashboard"),
-    path("ip-accounting/", ip_accounting, name="ip_accounting"),
-    path("anime-store/", anime_store, name="anime_store"),
+
+    path(
+        "",
+        home,
+        name="home",
+    ),
+
+    path(
+        "company-dashboard/",
+        company_dashboard,
+        name="company_dashboard",
+    ),
+
+    path(
+        "ip-accounting/",
+        ip_accounting,
+        name="ip_accounting",
+    ),
+
+    path(
+        "anime-store/",
+        anime_store,
+        name="anime_store",
+    ),
+
+    path(
+        "api/ip-request/",
+        create_ip_request,
+        name="create_ip_request",
+    ),
+
+    path(
+        "add-to-cart/<int:product_id>/",
+        add_to_cart,
+        name="add_to_cart",
+    ),
+
+    path(
+        "remove-from-cart/<int:product_id>/",
+        remove_from_cart,
+        name="remove_from_cart",
+    ),
+
+    path(
+        "update-cart/<int:product_id>/<int:quantity>/",
+        update_cart_quantity,
+        name="update_cart_quantity",
+    ),
+
+    path(
+        "checkout/",
+        checkout,
+        name="checkout",
+    ),
+
 ]

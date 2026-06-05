@@ -154,3 +154,120 @@ class CalculatorSettings(models.Model):
     class Meta:
         verbose_name = "Калькулятор"
         verbose_name_plural = "Калькулятор"
+
+class IpAccountingRequest(models.Model):
+    REQUEST_TYPES = [
+        ("consultation", "Консультация"),
+        ("calculator", "Калькулятор"),
+    ]
+
+    request_type = models.CharField(
+        max_length=50,
+        choices=REQUEST_TYPES,
+    )
+
+    service = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+
+    name = models.CharField(
+        max_length=255,
+    )
+
+    phone = models.CharField(
+        max_length=50,
+    )
+
+    tax_system = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+
+    price = models.CharField(
+        max_length=100,
+        blank=True,
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    is_processed = models.BooleanField(
+        default=False,
+    )
+
+    def __str__(self):
+        return f"{self.name} ({self.phone})"
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Заявка ИП"
+        verbose_name_plural = "Заявки ИП"
+
+class IPService(models.Model):
+
+    title = models.CharField(
+        max_length=255,
+        verbose_name="Название"
+    )
+
+    description = models.TextField(
+        verbose_name="Описание"
+    )
+
+    is_highlighted = models.BooleanField(
+        default=False,
+        verbose_name="Красная карточка"
+    )
+
+    order = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Порядок"
+    )
+
+    class Meta:
+        ordering = ["order"]
+        verbose_name = "Услуга ИП"
+        verbose_name_plural = "Услуги ИП"
+
+    def __str__(self):
+        return self.title
+
+
+class Product(models.Model):
+    CATEGORY_CHOICES = [
+        ("resin", "Смоляные фигурки"),
+        ("clay", "Полимерная глина"),
+        ("doll", "Арт-куклы"),
+        ("diorama", "Миниатюры"),
+    ]
+
+    name = models.CharField(
+        max_length=200
+    )
+
+    category = models.CharField(
+        max_length=100,
+        choices=CATEGORY_CHOICES,
+    )
+
+    price = models.IntegerField(
+        help_text="Цена в йенах"
+    )
+
+    image_url = models.URLField(
+        blank=True,
+        default=""
+    )
+
+    description = models.TextField(
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Товар"
+        verbose_name_plural = "Товары"

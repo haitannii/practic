@@ -80,9 +80,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "zenaccounting",
         "USER": "postgres",
-        "PASSWORD": "postgres",
+        "PASSWORD": "Cacatb111",
         "HOST": "localhost",
-        "PORT": "5432",
+        "PORT": "5433",
     }
 }
 
