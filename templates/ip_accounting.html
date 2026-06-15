@@ -3,53 +3,68 @@
 	class="light"
 	lang="ru"
 >
-	<head>
-		<meta charset="utf-8"/>
-		<meta
-			content="width=device-width, initial-scale=1.0"
-			name="viewport"
-		/>
+<head>
+    <meta charset="utf-8"/>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+        name="description"
+        content="ZenAccounting — бухгалтерское сопровождение индивидуальных предпринимателей. Ведение бухгалтерии ИП, расчет налогов, сдача отчетности и консультации по всей России."
+    />
+    <meta
+        name="keywords"
+        content="бухгалтерия ИП, бухгалтерские услуги, ведение ИП, сдача отчетности, расчет налогов, бухгалтер для ИП, бухгалтерское сопровождение, ZenAccounting"
+    />
+    <meta
+        name="author"
+        content="ZenAccounting"
+    />
 
-		<title>ZenAccounting - Бухгалтерия для ИП</title>
-		<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-			rel="stylesheet"
-		/>
+    <title>
+        ZenAccounting — Бухгалтерия для ИП
+    </title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    />
 
-			body {
-				font-family: 'Manrope', sans-serif;
-				background: #fcf9f8;
-				overflow-x: hidden;
-			}
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-			.glass-card {
-				background: rgba(255, 255, 255, 0.85);
-				backdrop-filter: blur(20px);
-				border: 1px solid rgba(139, 0, 0, 0.08);
-				box-shadow: 0 4px 20px -2px rgba(139, 0, 0, 0.08);
-			}
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #fcf9f8;
+            overflow-x: hidden;
+        }
 
-			.gradient-bg {
-				background:
-					radial-gradient(
-						circle at 10% 20%,
-						rgba(254, 218, 0, 0.08) 0%,
-						transparent 40%
-					),
-					radial-gradient(
-						circle at 90% 80%,
-						rgba(139, 0, 0, 0.05) 0%,
-						transparent 40%
-					);
-			}
-		</style>
-	</head>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 0, 0, 0.08);
+            box-shadow: 0 4px 20px -2px rgba(139, 0, 0, 0.08);
+        }
+
+        .gradient-bg {
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(254, 218, 0, 0.08) 0%,
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(139, 0, 0, 0.05) 0%,
+                    transparent 40%
+                );
+        }
+    </style>
+</head>
 
 	<body class="gradient-bg text-[#1c1b1b]">
 		<header
@@ -60,15 +75,15 @@
 				class="max-w-7xl mx-auto px-16 h-20 flex items-center justify-between"
 			>
 
-				<h1 class="text-3xl font-extrabold">
-					<span class="text-[#8b0000]">
-						Zen
-					</span>
+				<div class="text-3xl font-extrabold">
+    				<span class="text-[#8b0000]">
+        				Zen
+    				</span>
 
-					<span class="text-yellow-500">
-						Accounting
-					</span>
-				</h1>
+    				<span class="text-yellow-500">
+        				Accounting
+   	 				</span>
+				</div>
 
 				<nav class="flex items-center gap-8">
 
@@ -103,7 +118,8 @@
 				</nav>
 			</div>
 		</header>
-
+		
+		<main>
 		<section
 			class="pt-36 pb-24 px-16 min-h-screen flex items-center"
 			id="hero"
@@ -114,12 +130,11 @@
 			>
 
 				<div>
-
-					<h2 class="text-6xl font-extrabold leading-tight mb-8">
-						Бухгалтерия для ИП под ключ:
-						ведем учёт, сдаём отчёты,
-						консультируем
-					</h2>
+					<h1 class="text-6xl font-extrabold leading-tight mb-8">
+    					Бухгалтерия для ИП под ключ:
+    					ведем учёт, сдаём отчёты,
+    					консультируем
+					</h1>
 
 					<p class="text-xl text-gray-600 mb-10">
 						Опытные бухгалтеры.
@@ -242,9 +257,9 @@
 
 				</div>
 
-<div class="grid grid-cols-3 gap-6">
+			<div class="grid grid-cols-3 gap-6">
 
-	{% for service in services %}
+				{% for service in services %}
 
 		<div
 			class="
@@ -291,13 +306,11 @@
 		>
 			Связаться с нами
 		</button>
-
 	</div>
-
-</div>
-			</div>
-		</section>
-
+	</div>
+	</div>
+`	
+</section>
 		<section
 			class="py-24 px-16"
 			id="calculator"
@@ -502,7 +515,7 @@
 			</div>
 
 		</section>
-
+		</main>
 		<footer
 			class="bg-white border-t border-gray-200 py-12 px-16 mt-20"
 		>

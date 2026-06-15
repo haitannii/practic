@@ -5,13 +5,12 @@ from .views import (
     company_dashboard,
     ip_accounting,
     anime_store,
-
-    create_ip_request,
-
     add_to_cart,
     remove_from_cart,
     update_cart_quantity,
     checkout,
+    create_ip_request,
+    robots_txt,
 )
 
 urlpatterns = [
@@ -68,6 +67,12 @@ urlpatterns = [
         "checkout/",
         checkout,
         name="checkout",
+    ),
+
+    path(
+        "robots.txt",
+        robots_txt,
+        name="robots_txt",
     ),
 
 ]
