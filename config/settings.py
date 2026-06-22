@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "golovi55.beget.tech",
     "www.golovi55.beget.tech",
-    "postgresql://mydb_hcmg_user:FrCRrnFZq0ESqT4hlsrVqC4yv1vVs4hR@dpg-d8slo2j6sc1c73cl5vdg-a/mydb_hcmg",  # Добавьте ваш URL на Render
+    "practic2026.onrender.com",  # ✅ ИСПРАВЛЕНО - ваш URL
 ]
 
 
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Добавлено для статики на Render
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -140,15 +140,21 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Настройка для хранения статики на Render
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Дополнительные папки со статикой (если есть)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 # CSRF Trusted Origins для Render
 CSRF_TRUSTED_ORIGINS = [
-    'https://zenaccounting.onrender.com', 
+    'https://practic2026.onrender.com',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
