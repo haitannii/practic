@@ -23,11 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-j51e2o9wawgr(co0$mv6^*5=i6s&g_6q^6*=rf7%z!1+o&6)le"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "golovi55.beget.tech",
+    "www.golovi55.beget.tech"
 ]
 
 
@@ -81,13 +83,13 @@ CSP_SCRIPT_SRC = ("'self'", "https://cdn.tailwindcss.com")
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "zenaccounting",
-        "USER": "postgres",
-        "PASSWORD": "Cacatb111",
-        "HOST": "localhost",
-        "PORT": "5433",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'golovi55_hh',
+        'USER': 'golovi55_hh',
+        'PASSWORD': 'Cacatb111',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -127,3 +129,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / 'staticfiles'

@@ -1,151 +1,267 @@
 <!doctype html>
 <html
 	class="light"
-	lang="ru"
->
+	lang="ru">
 <head>
     <meta charset="utf-8"/>
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
+        content="width=device-width, initial-scale=1.0"/>
     <meta
         name="description"
-        content="ZenAccounting — бухгалтерское сопровождение индивидуальных предпринимателей. Ведение бухгалтерии ИП, расчет налогов, сдача отчетности и консультации по всей России."
-    />
+        content="ZenAccounting — бухгалтерское сопровождение индивидуальных предпринимателей. Ведение бухгалтерии ИП, расчет налогов, сдача отчетности и консультации по всей России."/>
     <meta
         name="keywords"
-        content="бухгалтерия ИП, бухгалтерские услуги, ведение ИП, сдача отчетности, расчет налогов, бухгалтер для ИП, бухгалтерское сопровождение, ZenAccounting"
-    />
+        content="бухгалтерия ИП, бухгалтерские услуги, ведение ИП, сдача отчетности, расчет налогов, бухгалтер для ИП, бухгалтерское сопровождение, ZenAccounting"/>
     <meta
         name="author"
-        content="ZenAccounting"
-    />
+        content="ZenAccounting"/>
 
     <title>
         ZenAccounting — Бухгалтерия для ИП
     </title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     />
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+   <style>
+	.site * {
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Manrope', sans-serif;
-            background: #fcf9f8;
-            overflow-x: hidden;
-        }
+	html{
+		scroll-behavior:smooth;
+	}
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 0, 0, 0.08);
-            box-shadow: 0 4px 20px -2px rgba(139, 0, 0, 0.08);
-        }
+	body.site {
+		font-family: 'Manrope', sans-serif;
+		background: #fcf9f8;
+		overflow-x: hidden;
+	}
 
-        .gradient-bg {
-            background:
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(254, 218, 0, 0.08) 0%,
-                    transparent 40%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(139, 0, 0, 0.05) 0%,
-                    transparent 40%
-                );
-        }
-    </style>
+	img{
+		max-width:100%;
+		height:auto;
+		display:block;
+	}
+
+	.glass-card{
+		background:rgba(255,255,255,.85);
+		backdrop-filter:blur(20px);
+		border:1px solid rgba(139,0,0,.08);
+		box-shadow:0 4px 20px -2px rgba(139,0,0,.08);
+	}
+
+	.gradient-bg{
+		background:
+		radial-gradient(circle at 10% 20%,rgba(254,218,0,.08)0%,transparent 40%),
+		radial-gradient(circle at 90% 80%,rgba(139,0,0,.05)0%,transparent 40%);
+	}
+
+	.header-container{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		gap:14px;
+		padding:14px 18px;
+	}
+
+	@media(min-width:768px){
+	.header-container{
+		flex-direction:row;
+		justify-content:space-between;
+		height:80px;
+		padding:0 18px;
+	}
+	}
+
+	.header-nav{
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:center;
+		align-items:center;
+		gap:10px 18px;
+		width:100%;
+	}
+
+	@media(min-width:768px){
+	.header-nav{
+		width:auto;
+		gap:24px;
+	}
+	}
+
+	.search-input{
+		width:100%;
+		max-width:280px;
+	}
+
+	@media(min-width:640px){
+	.search-input{
+		width:220px;
+	}
+	}
+
+	@media(min-width:768px){
+	.search-input{
+		width:250px;
+	}
+	}
+
+	.hero-section{
+		padding:120px 16px 50px;
+		min-height:100vh;
+		display:flex;
+		align-items:center;
+	}
+
+	@media(min-width:640px){
+	.hero-section{
+		padding:130px 24px 60px;
+	}
+	}
+
+	@media(min-width:1024px){
+	.hero-section{
+		padding:145px 64px 80px;
+	}
+	}
+
+	.hero-title{
+		font-size:30px;
+		line-height:1.2;
+	}
+
+	@media(min-width:640px){
+	.hero-title{
+		font-size:40px;
+	}
+	}
+
+	@media(min-width:1024px){
+	.hero-title{
+		font-size:58px;
+	}
+	}
+
+	.hero-form-grid{
+		display:grid;
+		grid-template-columns:1fr;
+		gap:16px;
+	}
+
+	@media(min-width:640px){
+	.hero-form-grid{
+		grid-template-columns:1fr 1fr;
+	}
+	.hero-form-grid .full-width{
+  	grid-column:1/-1;
+	}
+	}
+
+	.site :is(input, select, button) {
+    font-size: 16px !important;
+}
+
+	.calc-option-grid{
+		display:grid;
+		grid-template-columns:repeat(2,1fr);
+		gap:10px;
+	}
+
+	.calc-option-grid-3{
+		display:grid;
+		grid-template-columns:repeat(3,1fr);
+		gap:10px;
+	}
+
+	.calc-option{
+		border:1px solid #e5e7eb;
+		border-radius:12px;
+		padding:15px 10px;
+		text-align:center;
+		transition:.2s;
+		cursor:pointer;
+	}
+
+	.modal-content{
+		margin:16px;
+		max-width:100%;
+	}
+
+	@media(min-width:640px){
+	.modal-content{
+		max-width:500px;
+		margin:0;
+	}
+	}
+</style>
+
 </head>
-
+	<body class="site">
 	<body class="gradient-bg text-[#1c1b1b]">
-		<header
-			class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200"
-		>
+		<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
 
-			<div
-				class="max-w-7xl mx-auto px-16 h-20 flex items-center justify-between"
-			>
+	<div class="max-w-7xl mx-auto header-container">
 
-				<div class="text-3xl font-extrabold">
-    				<span class="text-[#8b0000]">
-        				Zen
-    				</span>
+	<div class="text-2xl sm:text-3xl font-extrabold flex-shrink-0">
+	<span class="text-[#8b0000]">Zen</span>
+	<span class="text-yellow-500">Accounting</span>
+	</div>
 
-    				<span class="text-yellow-500">
-        				Accounting
-   	 				</span>
-				</div>
+	<nav class="header-nav">
 
-				<nav class="flex items-center gap-8">
+	<a href="{% url 'home' %}" class="hover:text-[#8b0000] transition-colors text-sm sm:text-base">
+	Главная
+	</a>
 
-					<a
-						class="hover:text-[#8b0000] transition-colors"
-						href="{% url 'home' %}"
-					>
-						Главная
-					</a>
+	<a href="#benefits" class="hover:text-[#8b0000] transition-colors text-sm sm:text-base">
+	Услуги
+	</a>
 
-					<a
-						class="hover:text-[#8b0000] transition-colors"
-						href="#benefits"
-					>
-						Услуги
-					</a>
+	<a href="#calculator" class="hover:text-[#8b0000] transition-colors text-sm sm:text-base">
+	Калькулятор
+	</a>
 
-					<a
-						class="hover:text-[#8b0000] transition-colors"
-						href="#calculator"
-					>
-						Калькулятор
-					</a>
-
-					<input
-						class="border border-gray-300 rounded-full px-4 py-2 outline-none focus:ring-2 focus:ring-[#8b0000]/20 transition-all"
-						id="searchInput"
-						placeholder="Поиск..."
-						type="text"
-					/>
-
-				</nav>
-			</div>
-		</header>
-		
-		<main>
+	<input
+	id="searchInput"
+	type="text"
+	placeholder="Поиск..."
+	class="search-input border border-gray-300 rounded-full px-4 py-2 text-sm"
+	/>
+	</nav>
+	</div>
+</header>
+	
+	<main>
 		<section
-			class="pt-36 pb-24 px-16 min-h-screen flex items-center"
+			class="pt-36 pb-16 px-4 sm:px-6 md:px-8 lg:px-16 min-h-screen flex items-center"
 			id="hero"
 		>
 
 			<div
-				class="max-w-7xl mx-auto grid grid-cols-2 gap-16 items-center"
+				class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
 			>
 
 				<div>
-					<h1 class="text-6xl font-extrabold leading-tight mb-8">
+					<h1 class="hero-title font-extrabold leading-tight">
     					Бухгалтерия для ИП под ключ:
     					ведем учёт, сдаём отчёты,
     					консультируем
 					</h1>
 
-					<p class="text-xl text-gray-600 mb-10">
+					<p class="text-base md:text-xl md:text-xl text-gray-600">
 						Опытные бухгалтеры.
 						Гарантия соблюдения сроков.
 						Работаем онлайн по всей России.
 					</p>
 
-					<div class="glass-card rounded-3xl p-8">
+					<div class="glass-card rounded-3xl p-5 md:p-8">
 
 						<form
-							class="grid grid-cols-2 gap-4"
+							class="hero-form-grid"
 							id="heroForm"
 						>
 
@@ -179,7 +295,7 @@
 
 							</div>
 
-							<div class="col-span-2">
+							<div class="full-width">
 
 								<label class="text-xs uppercase text-gray-500">
 									Система налогообложения
@@ -197,7 +313,7 @@
 							</div>
 
 							<label
-								class="col-span-2 flex items-center gap-3 text-sm text-gray-500"
+								class="full-width flex items-center gap-3 text-sm text-gray-500"
 							>
 
 								<input
@@ -210,7 +326,7 @@
 							</label>
 
 							<button
-								class="col-span-2 bg-[#8b0000] text-white py-4 rounded-xl font-bold hover:brightness-110 transition-all"
+								class="full-width bg-[#8b0000] text-white py-4 rounded-xl font-bold hover:brightness-110 transition-all"
 								type="submit"
 							>
 								Рассчитать стоимость и получить консультацию
@@ -222,11 +338,11 @@
 
 				</div>
 
-				<div>
+				<div class="hidden lg:block">
 
 					<img
 						alt="accounting"
-						class="w-full h-[700px] object-cover rounded-[32px] shadow-2xl"
+						class="w-full h-[300px] md:h-[500px] lg:h-[700px] object-cover rounded-[32px]"
 						src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200"
 					/>
 
@@ -237,292 +353,308 @@
 		</section>
 
 		<section
-			class="py-24 px-16"
-			id="benefits"
-		>
+    class="px-4 sm:px-6 md:px-8 lg:px-16 py-12"
+    id="benefits"
+>
 
-			<div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto">
 
-				<div class="text-center mb-16">
+<div class="text-center mb-10 md:mb-12">
 
-					<span
-						class="bg-yellow-100 text-[#8b0000] px-5 py-2 rounded-full text-sm font-bold"
-					>
-						Наши услуги
-					</span>
+<span
+class="bg-yellow-100 text-[#8b0000] px-5 py-2 rounded-full text-sm font-bold">
+Наши услуги
+</span>
 
-					<h2 class="text-5xl font-bold mt-6">
-						Что входит в бухгалтерское сопровождение
-					</h2>
+<h2
+class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mt-4 sm:mt-6 leading-tight">
+Что входит в бухгалтерское сопровождение
+</h2>
 
-				</div>
-
-			<div class="grid grid-cols-3 gap-6">
-
-				{% for service in services %}
-
-		<div
-			class="
-				{% if service.is_highlighted %}
-					bg-[#8b0000] text-white
-				{% else %}
-					glass-card
-				{% endif %}
-				rounded-3xl p-8 hover:-translate-y-2 transition-all
-			"
-		>
-
-			<h3 class="text-2xl font-bold mb-4">
-				{{ service.title }}
-			</h3>
-
-			<p
-				class="
-					{% if service.is_highlighted %}
-						text-white/80
-					{% else %}
-						text-gray-600
-					{% endif %}
-				"
-			>
-				{{ service.description }}
-			</p>
-
-		</div>
-
-	{% endfor %}
+</div>
 
 	<div
-		class="bg-[#8b0000] text-white rounded-3xl p-8 flex flex-col justify-center items-center text-center"
-	>
+	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
-		<h3 class="text-3xl font-bold mb-6">
-			Нужна помощь прямо сейчас?
-		</h3>
+	{% for service in services %}
 
-		<button
-			class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all"
-			id="contactButton"
-		>
-			Связаться с нами
-		</button>
-	</div>
-	</div>
-	</div>
-`	
+	<div
+	class="
+	{% if service.is_highlighted %}
+	bg-[#8b0000] text-white
+	{% else %}
+	glass-card
+	{% endif %}
+	rounded-2xl sm:rounded-3xl
+	p-6 sm:p-8
+	hover:-translate-y-2
+	transition-all">
+
+	<h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+	{{ service.title }}
+	</h3>
+
+	<p
+	class="
+	{% if service.is_highlighted %}
+	text-white/80
+	{% else %}
+	text-gray-600
+	{% endif %}
+	text-sm sm:text-base">
+	{{ service.description }}
+	</p>
+
+</div>
+
+{% endfor %}
+
+<div
+class="bg-[#8b0000] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-center items-center text-center">
+
+<h3
+class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+Нужна помощь прямо сейчас?
+</h3>
+
+<button
+id="contactButton"
+class="bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:brightness-110 transition-all text-sm sm:text-base">
+
+Связаться с нами
+
+</button>
+</div>
+</div>
+</div>
 </section>
-		<section
-			class="py-24 px-16"
-			id="calculator"
-		>
 
-			<div class="max-w-6xl mx-auto">
+	<section
+class="px-4 sm:px-6 md:px-8 lg:px-16 py-12"
+id="calculator">
 
-				<div class="glass-card rounded-[40px] p-12">
+<div class="max-w-6xl mx-auto">
 
-					<h2 class="text-5xl font-bold mb-3">
-						Рассчитайте стоимость обслуживания
-					</h2>
+<div
+class="glass-card rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 lg:p-12">
 
-					<p class="text-gray-600 mb-12">
-						Выберите параметры вашего бизнеса
-					</p>
+<h2
+class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2">
 
-					<div class="grid grid-cols-2 gap-16">
+Рассчитайте стоимость обслуживания
 
-						<div class="flex flex-col gap-10">
+</h2>
 
-							<div>
+<p class="text-gray-600 mb-8">
+Выберите параметры вашего бизнеса
+</p>
 
-								<h4 class="font-bold mb-4">
-									Система налогообложения
-								</h4>
+<div
+class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
-								<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-8">
 
-									<label class="cursor-pointer">
+<div>
 
-										<input
-											checked
-											class="peer sr-only"
-											name="tax"
-											type="radio"
-											value="5000"
-										/>
+<h4 class="font-bold mb-4">
+Система налогообложения
+</h4>
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											УСН (6%)
-										</div>
+<div class="calc-option-grid">
 
-									</label>
+<label class="cursor-pointer">
 
-									<label class="cursor-pointer">
+<input
+checked
+class="peer sr-only"
+name="tax"
+type="radio"
+value="5000"/>
 
-										<input
-											class="peer sr-only"
-											name="tax"
-											type="radio"
-											value="8000"
-										/>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											УСН (15%)
-										</div>
+УСН (6%)
 
-									</label>
+</div>
 
-									<label class="cursor-pointer">
+</label>
 
-										<input
-											class="peer sr-only"
-											name="tax"
-											type="radio"
-											value="4000"
-										/>
+<label class="cursor-pointer">
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											Патент
-										</div>
+<input
+class="peer sr-only"
+name="tax"
+type="radio"
+value="8000"/>
 
-									</label>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-									<label class="cursor-pointer">
+УСН (15%)
 
-										<input
-											class="peer sr-only"
-											name="tax"
-											type="radio"
-											value="15000"
-										/>
+</div>
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											ОСНО
-										</div>
+</label>
 
-									</label>
+<label class="cursor-pointer">
 
-								</div>
+<input
+class="peer sr-only"
+name="tax"
+type="radio"
+value="4000"/>
 
-							</div>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-							<div>
+Патент
 
-								<h4 class="font-bold mb-4">
-									Количество операций в месяц
-								</h4>
+</div>
 
-								<div class="grid grid-cols-3 gap-4">
+</label>
 
-									<label class="cursor-pointer">
+<label class="cursor-pointer">
 
-										<input
-											checked
-											class="peer sr-only"
-											name="operations"
-											type="radio"
-											value="0"
-										/>
+<input
+class="peer sr-only"
+name="tax"
+type="radio"
+value="15000"/>
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											До 10
-										</div>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-									</label>
+ОСНО
 
-									<label class="cursor-pointer">
+</div>
 
-										<input
-											class="peer sr-only"
-											name="operations"
-											type="radio"
-											value="4000"
-										/>
+</label>
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											10–50
-										</div>
+</div>
 
-									</label>
+</div>
 
-									<label class="cursor-pointer">
+<div>
 
-										<input
-											class="peer sr-only"
-											name="operations"
-											type="radio"
-											value="12000"
-										/>
+<h4 class="font-bold mb-4">
+Количество операций в месяц
+</h4>
 
-										<div
-											class="border rounded-xl p-4 text-center peer-checked:border-[#8b0000] peer-checked:bg-yellow-100 transition-all"
-										>
-											Более 50
-										</div>
+<div class="calc-option-grid-3">
 
-									</label>
+<label class="cursor-pointer">
 
-								</div>
+<input
+checked
+class="peer sr-only"
+name="operations"
+type="radio"
+value="0"/>
 
-							</div>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-						</div>
+До 10
 
-						<div
-							class="bg-[#8b0000] text-white rounded-[32px] p-10 flex flex-col justify-center text-center"
-						>
+</div>
 
-							<p class="uppercase text-sm opacity-70 mb-4">
-								Ориентировочная стоимость
-							</p>
+</label>
 
-							<h3
-								class="text-6xl font-extrabold mb-8"
-								id="calc-result"
-							>
-								от 5 000 руб./мес
-							</h3>
+<label class="cursor-pointer">
 
-							<button
-								class="bg-yellow-400 text-black py-4 rounded-xl font-bold hover:brightness-110 transition-all"
-								id="openCalcModal"
-							>
-								Оставить заявку
-							</button>
+<input
+class="peer sr-only"
+name="operations"
+type="radio"
+value="4000"/>
 
-							<p class="text-xs opacity-70 mt-6">
-								Точная стоимость зависит
-								от сложности учета
-							</p>
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
 
-						</div>
+10–50
 
-					</div>
+</div>
 
-				</div>
+</label>
 
-			</div>
+<label class="cursor-pointer">
 
-		</section>
+<input
+class="peer sr-only"
+name="operations"
+type="radio"
+value="12000"/>
+
+<div
+class="calc-option peer-checked:border-[#8b0000] peer-checked:bg-yellow-100">
+
+Более 50
+
+</div>
+
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="bg-[#8b0000] text-white rounded-2xl sm:rounded-[32px] p-6 sm:p-8 md:p-10 flex flex-col justify-center text-center">
+
+<p
+class="uppercase text-xs sm:text-sm opacity-70 mb-4">
+
+Ориентировочная стоимость
+
+</p>
+
+<h3
+id="calc-result"
+class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold">
+
+от 5 000 руб./мес
+
+</h3>
+
+<button
+id="openCalcModal"
+class="bg-yellow-400 text-black py-3 sm:py-4 rounded-xl font-bold hover:brightness-110 transition-all mt-5">
+
+Оставить заявку
+
+</button>
+
+<p
+class="text-xs opacity-70 mt-6">
+
+Точная стоимость зависит от сложности учета
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 		</main>
 		<footer
 			class="bg-white border-t border-gray-200 py-12 px-16 mt-20"
 		>
 
-			<div
-				class="max-w-7xl mx-auto flex justify-between items-center"
-			>
+			<div class="flex flex-col
+				md:flex-row
+				justify-between
+				items-center
+				text-center
+				md:text-left
+				gap-8">
 
 				<div>
 
@@ -563,14 +695,13 @@
 			</div>
 		</footer>
 
-		<!-- CONTACT MODAL -->
 		<div
 			class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
 			id="contactModal"
 		>
 
 			<div
-				class="bg-white rounded-3xl p-8 max-w-lg w-full mx-4 relative"
+				class="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full mx-4 relative"
 			>
 
 				<button
@@ -637,8 +768,6 @@
 
 		</div>
 
-		<!-- CALCULATOR MODAL -->
-
 		<div
 			class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
 			id="calculatorModal"
@@ -669,6 +798,7 @@
 						placeholder="Ваше имя"
 						required
 						type="text"
+						
 					/>
 
 					<input
@@ -721,8 +851,6 @@
 
 		</div>
 
-		<!-- SUCCESS MODAL -->
-
 		<div
 			class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
 			id="successModal"
@@ -749,520 +877,489 @@
 					В течение 10–20 минут
 					с вами свяжется специалист.
 				</p>
-
 			</div>
-
 		</div>
 
-<script>
+	<script>
 
-document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("DOMContentLoaded", () => {
 
-	/* =========================
-	   ПОИСК
-	========================= */
 
-	const searchInput =
-		document.getElementById("searchInput")
+		const searchInput =
+			document.getElementById("searchInput")
 
-	if (searchInput) {
+		if (searchInput) {
 
-		searchInput.addEventListener("keydown", e => {
+			searchInput.addEventListener("keydown", e => {
 
-			if (e.key !== "Enter") return
-
-			e.preventDefault()
-
-			const value =
-				searchInput.value.toLowerCase().trim()
-
-			if (value.includes("калькулятор")) {
-
-				document
-					.getElementById("calculator")
-					.scrollIntoView({
-						behavior: "smooth"
-					})
-
-			}
-
-			else if (
-				value.includes("услуги") ||
-				value.includes("консульта")
-			) {
-
-				document
-					.getElementById("benefits")
-					.scrollIntoView({
-						behavior: "smooth"
-					})
-
-			}
-
-			else {
-
-				alert("Ничего не найдено")
-
-			}
-
-		})
-
-	}
-
-	/* =========================
-	   МОДАЛКИ
-	========================= */
-
-	const contactModal =
-		document.getElementById("contactModal")
-
-	const calculatorModal =
-		document.getElementById("calculatorModal")
-
-	const successModal =
-		document.getElementById("successModal")
-
-	function openModal(modal) {
-
-		modal.classList.remove("hidden")
-		modal.classList.add("flex")
-
-	}
-
-	function closeModal(modal) {
-
-		modal.classList.add("hidden")
-		modal.classList.remove("flex")
-
-	}
-
-	/* =========================
-	   SUCCESS MODAL
-	========================= */
-
-	document
-		.getElementById("closeSuccessModal")
-		?.addEventListener("click", () => {
-
-			closeModal(successModal)
-
-		})
-
-	/* =========================
-	   CONTACT MODAL
-	========================= */
-
-	document
-		.getElementById("contactButton")
-		?.addEventListener("click", () => {
-
-			openModal(contactModal)
-
-		})
-
-	document
-		.getElementById("closeContactModal")
-		?.addEventListener("click", () => {
-
-			closeModal(contactModal)
-
-		})
-
-	/* =========================
-	   HERO FORM
-	========================= */
-
-	const heroForm =
-		document.getElementById("heroForm")
-
-	if (heroForm) {
-
-		heroForm.addEventListener(
-			"submit",
-			async e => {
+				if (e.key !== "Enter") return
 
 				e.preventDefault()
 
-				const name =
-					heroForm.querySelector(
-						'input[type="text"]'
-					).value
+				const value =
+					searchInput.value.toLowerCase().trim()
 
-				const phone =
-					heroForm.querySelector(
-						'input[type="tel"]'
-					).value
+				if (value.includes("калькулятор")) {
 
-				const taxSystem =
-					heroForm.querySelector(
-						"select"
-					).value
-
-				const agreement =
-					document.getElementById(
-						"heroAgreement"
-					)
-
-				if (!agreement.checked) {
-
-					alert(
-						"Подтвердите обработку персональных данных"
-					)
-
-					return
+					document
+						.getElementById("calculator")
+						.scrollIntoView({
+							behavior: "smooth"
+						})
 
 				}
 
-				try {
+				else if (
+					value.includes("услуги") ||
+					value.includes("консульта")
+				) {
 
-					await fetch(
-						"/api/ip-request/",
-						{
-							method: "POST",
-							headers: {
-								"Content-Type":
-									"application/json"
-							},
-							body: JSON.stringify({
-								request_type:
-									"hero_form",
-								name,
-								phone,
-								tax_system:
-									taxSystem
-							})
-						}
-					)
-
-					heroForm.reset()
-
-					openModal(successModal)
+					document
+						.getElementById("benefits")
+						.scrollIntoView({
+							behavior: "smooth"
+						})
 
 				}
 
-				catch {
+				else {
 
-					alert(
-						"Ошибка отправки заявки"
-					)
+					alert("Ничего не найдено")
 
 				}
 
-			}
-		)
+			})
 
-	}
+		}
 
-	/* =========================
-	   CONTACT FORM
-	========================= */
+		const contactModal =
+			document.getElementById("contactModal")
 
-	const contactForm =
-		document.getElementById("contactForm")
+		const calculatorModal =
+			document.getElementById("calculatorModal")
 
-	if (contactForm) {
+		const successModal =
+			document.getElementById("successModal")
 
-		contactForm.addEventListener(
-			"submit",
-			async e => {
+		function openModal(modal) {
 
-				e.preventDefault()
+			modal.classList.remove("hidden")
+			modal.classList.add("flex")
 
-				const service =
-					contactForm.querySelector(
-						"select"
-					).value
+		}
 
-				const name =
-					contactForm.querySelector(
-						'input[type="text"]'
-					).value
+		function closeModal(modal) {
 
-				const phone =
-					contactForm.querySelector(
-						'input[type="tel"]'
-					).value
+			modal.classList.add("hidden")
+			modal.classList.remove("flex")
 
-				try {
+		}
 
-					await fetch(
-						"/api/ip-request/",
-						{
-							method: "POST",
-							headers: {
-								"Content-Type":
-									"application/json"
-							},
-							body: JSON.stringify({
-								request_type:
-									"service",
-								service,
-								name,
-								phone
-							})
-						}
-					)
+		document
+			.getElementById("closeSuccessModal")
+			?.addEventListener("click", () => {
 
-					contactForm.reset()
+				closeModal(successModal)
 
-					closeModal(contactModal)
+			})
 
-					openModal(successModal)
+		document
+			.getElementById("contactButton")
+			?.addEventListener("click", () => {
+
+				openModal(contactModal)
+
+			})
+
+		document
+			.getElementById("closeContactModal")
+			?.addEventListener("click", () => {
+
+				closeModal(contactModal)
+
+			})
+
+		const heroForm =
+			document.getElementById("heroForm")
+
+		if (heroForm) {
+
+			heroForm.addEventListener(
+				"submit",
+				async e => {
+
+					e.preventDefault()
+
+					const name =
+						heroForm.querySelector(
+							'input[type="text"]'
+						).value
+
+					const phone =
+						heroForm.querySelector(
+							'input[type="tel"]'
+						).value
+
+					const taxSystem =
+						heroForm.querySelector(
+							"select"
+						).value
+
+					const agreement =
+						document.getElementById(
+							"heroAgreement"
+						)
+
+					if (!agreement.checked) {
+
+						alert(
+							"Подтвердите обработку персональных данных"
+						)
+
+						return
+
+					}
+
+					try {
+
+						await fetch(
+							"/api/ip-request/",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type":
+										"application/json"
+								},
+								body: JSON.stringify({
+									request_type:
+										"hero_form",
+									name,
+									phone,
+									tax_system:
+										taxSystem
+								})
+							}
+						)
+
+						heroForm.reset()
+
+						openModal(successModal)
+
+					}
+
+					catch {
+
+						alert(
+							"Ошибка отправки заявки"
+						)
+
+					}
 
 				}
+			)
 
-				catch {
+		}
 
-					alert(
-						"Ошибка отправки заявки"
-					)
+		const contactForm =
+			document.getElementById("contactForm")
+
+		if (contactForm) {
+
+			contactForm.addEventListener(
+				"submit",
+				async e => {
+
+					e.preventDefault()
+
+					const service =
+						contactForm.querySelector(
+							"select"
+						).value
+
+					const name =
+						contactForm.querySelector(
+							'input[type="text"]'
+						).value
+
+					const phone =
+						contactForm.querySelector(
+							'input[type="tel"]'
+						).value
+
+					try {
+
+						await fetch(
+							"/api/ip-request/",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type":
+										"application/json"
+								},
+								body: JSON.stringify({
+									request_type:
+										"service",
+									service,
+									name,
+									phone
+								})
+							}
+						)
+
+						contactForm.reset()
+
+						closeModal(contactModal)
+
+						openModal(successModal)
+
+					}
+
+					catch {
+
+						alert(
+							"Ошибка отправки заявки"
+						)
+
+					}
 
 				}
-
-			}
-		)
-
-	}
-
-	/* =========================
-	   КАЛЬКУЛЯТОР
-	========================= */
-
-	const resultEl =
-		document.getElementById(
-			"calc-result"
-		)
-
-	const servicePrices = {
-
-		"УСН (6%)": 5000,
-		"УСН (15%)": 8000,
-		"Патент": 4000,
-		"ОСНО": 15000
-
-	}
-
-	function updatePrice() {
-
-		const tax =
-			Number(
-				document.querySelector(
-					'input[name="tax"]:checked'
-				).value
 			)
 
-		const operations =
-			Number(
-				document.querySelector(
-					'input[name="operations"]:checked'
-				).value
+		}
+
+		const resultEl =
+			document.getElementById(
+				"calc-result"
 			)
 
-		const total =
-			tax + operations
+		const servicePrices = {
 
-		resultEl.innerText =
-			`от ${total.toLocaleString()} руб./мес`
+			"УСН (6%)": 5000,
+			"УСН (15%)": 8000,
+			"Патент": 4000,
+			"ОСНО": 15000
 
-	}
+		}
 
-	document
-		.querySelectorAll(
-			'input[name="tax"]'
-		)
-		.forEach(item => {
+		function updatePrice() {
 
-			item.addEventListener(
-				"change",
-				updatePrice
-			)
-
-		})
-
-	document
-		.querySelectorAll(
-			'input[name="operations"]'
-		)
-		.forEach(item => {
-
-			item.addEventListener(
-				"change",
-				updatePrice
-			)
-
-		})
-
-	updatePrice()
-
-	/* =========================
-	   CALCULATOR MODAL
-	========================= */
-
-	const modalTax =
-		document.getElementById(
-			"modalTax"
-		)
-
-	const modalPrice =
-		document.getElementById(
-			"modalPrice"
-		)
-
-	function updateModalPrice() {
-
-		const selectedService =
-			modalTax.value
-
-		const operations =
-			Number(
-				document.querySelector(
-					'input[name="operations"]:checked'
-				).value
-			)
-
-		const total =
-			servicePrices[
-				selectedService
-			] + operations
-
-		modalPrice.innerText =
-			`${total.toLocaleString()} руб./мес`
-
-	}
-
-	document
-		.getElementById(
-			"openCalcModal"
-		)
-		?.addEventListener(
-			"click",
-			() => {
-
-				const selectedTax =
+			const tax =
+				Number(
 					document.querySelector(
 						'input[name="tax"]:checked'
-					)
-
-				const selectedText =
-					selectedTax
-						.parentElement
-						.innerText
-						.trim()
-
-				modalTax.value =
-					selectedText
-
-				updateModalPrice()
-
-				openModal(
-					calculatorModal
+					).value
 				)
 
-			}
-		)
-
-	document
-		.getElementById(
-			"closeCalcModal"
-		)
-		?.addEventListener(
-			"click",
-			() => {
-
-				closeModal(
-					calculatorModal
+			const operations =
+				Number(
+					document.querySelector(
+						'input[name="operations"]:checked'
+					).value
 				)
 
-			}
-		)
+			const total =
+				tax + operations
 
-	modalTax?.addEventListener(
-		"change",
-		updateModalPrice
-	)
+			resultEl.innerText =
+				`от ${total.toLocaleString()} руб./мес`
 
-	/* =========================
-	   CALCULATOR FORM
-	========================= */
+		}
 
-	const calcForm =
-		document.getElementById(
-			"calcForm"
-		)
+		document
+			.querySelectorAll(
+				'input[name="tax"]'
+			)
+			.forEach(item => {
 
-	if (calcForm) {
+				item.addEventListener(
+					"change",
+					updatePrice
+				)
 
-		calcForm.addEventListener(
-			"submit",
-			async e => {
+			})
 
-				e.preventDefault()
+		document
+			.querySelectorAll(
+				'input[name="operations"]'
+			)
+			.forEach(item => {
 
-				const name =
-					calcForm.querySelector(
-						'input[type="text"]'
+				item.addEventListener(
+					"change",
+					updatePrice
+				)
+
+			})
+
+		updatePrice()
+
+		const modalTax =
+			document.getElementById(
+				"modalTax"
+			)
+
+		const modalPrice =
+			document.getElementById(
+				"modalPrice"
+			)
+
+		function updateModalPrice() {
+
+			const selectedService =
+				modalTax.value
+
+			const operations =
+				Number(
+					document.querySelector(
+						'input[name="operations"]:checked'
 					).value
+				)
 
-				const phone =
-					calcForm.querySelector(
-						'input[type="tel"]'
-					).value
+			const total =
+				servicePrices[
+					selectedService
+				] + operations
 
-				const taxSystem =
-					modalTax.value
+			modalPrice.innerText =
+				`${total.toLocaleString()} руб./мес`
 
-				const price =
-					modalPrice.innerText
+		}
 
-				try {
+		document
+			.getElementById(
+				"openCalcModal"
+			)
+			?.addEventListener(
+				"click",
+				() => {
 
-					await fetch(
-						"/api/ip-request/",
-						{
-							method: "POST",
-							headers: {
-								"Content-Type":
-									"application/json"
-							},
-							body: JSON.stringify({
-								request_type:
-									"calculator",
-								name,
-								phone,
-								tax_system:
-									taxSystem,
-								price
-							})
-						}
+					const selectedTax =
+						document.querySelector(
+							'input[name="tax"]:checked'
+						)
+
+					const selectedText =
+						selectedTax
+							.parentElement
+							.innerText
+							.trim()
+
+					modalTax.value =
+						selectedText
+
+					updateModalPrice()
+
+					openModal(
+						calculatorModal
 					)
 
-					calcForm.reset()
+				}
+			)
+
+		document
+			.getElementById(
+				"closeCalcModal"
+			)
+			?.addEventListener(
+				"click",
+				() => {
 
 					closeModal(
 						calculatorModal
 					)
 
-					openModal(
-						successModal
-					)
-
 				}
+			)
 
-				catch {
-
-					alert(
-						"Ошибка отправки заявки"
-					)
-
-				}
-
-			}
+		modalTax?.addEventListener(
+			"change",
+			updateModalPrice
 		)
 
-	}
+		const calcForm =
+			document.getElementById(
+				"calcForm"
+			)
 
-})
+		if (calcForm) {
 
-</script>
+			calcForm.addEventListener(
+				"submit",
+				async e => {
+
+					e.preventDefault()
+
+					const name =
+						calcForm.querySelector(
+							'input[type="text"]'
+						).value
+
+					const phone =
+						calcForm.querySelector(
+							'input[type="tel"]'
+						).value
+
+					const taxSystem =
+						modalTax.value
+
+					const price =
+						modalPrice.innerText
+
+					try {
+
+						await fetch(
+							"/api/ip-request/",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type":
+										"application/json"
+								},
+								body: JSON.stringify({
+									request_type:
+										"calculator",
+									name,
+									phone,
+									tax_system:
+										taxSystem,
+									price
+								})
+							}
+						)
+
+						calcForm.reset()
+
+						closeModal(
+							calculatorModal
+						)
+
+						openModal(
+							successModal
+						)
+
+					}
+
+					catch {
+
+						alert(
+							"Ошибка отправки заявки"
+						)
+
+					}
+
+				}
+			)
+
+		}
+
+	})
+
+	document.querySelectorAll('input[type="tel"]').forEach(input => {
+	input.addEventListener("input", (e) => {
+		e.target.value = e.target.value.replace(/[^\d+]/g, "");
+	});
+	}); 
+
+	</script>
 	</body>
 </html>
