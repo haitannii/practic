@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,16 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-j51e2o9wawgr(co0$mv6^*5=i6s&g_6q^6*=rf7%z!1+o&6)le"
+SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-j51e2o9wawgr(co0$mv6^*5=i6s&g_6q^6*=rf7%z!1+o&6)le")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "golovi55.beget.tech",
-    "www.golovi55.beget.tech"
+    "www.golovi55.beget.tech",
+    "postgresql://mydb_hcmg_user:FrCRrnFZq0ESqT4hlsrVqC4yv1vVs4hR@dpg-d8slo2j6sc1c73cl5vdg-a/mydb_hcmg",  # Добавьте ваш URL на Render
 ]
 
 
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Добавлено для статики на Render
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -82,16 +86,26 @@ CSP_SCRIPT_SRC = ("'self'", "https://cdn.tailwindcss.com")
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'golovi55_hh',
-        'USER': 'golovi55_hh',
-        'PASSWORD': 'Cacatb111',
-        'HOST': 'localhost',
-        'PORT': '3306',
+# Получаем URL базы данных из переменных окружения
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    # На Render - используем PostgreSQL
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL)
     }
-}
+else:
+    # Локально - MySQL (для Beget)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'golovi55_hh',
+            'USER': 'golovi55_hh',
+            'PASSWORD': 'Cacatb111',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
 
 
 # Password validation
@@ -130,3 +144,11 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Настройка для хранения статики на Render
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# CSRF Trusted Origins для Render
+CSRF_TRUSTED_ORIGINS = [
+    'https://zenaccounting.onrender.com', 
+]
